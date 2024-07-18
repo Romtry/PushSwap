@@ -6,7 +6,7 @@
 #    By: rothiery <rothiery@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/04/22 09:50:21 by rothiery          #+#    #+#              #
-#    Updated: 2024/07/15 09:10:38 by rothiery         ###   ########.fr        #
+#    Updated: 2024/07/18 10:29:28 by rothiery         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -17,13 +17,7 @@ SRC= 	./src/parsing/check.c	./src/parsing/prnt_error.c	./src/utils/check_utils.c
 		./src/utils/r_moves.c	./src/utils/rr_moves.c			./src/utils/s_moves.c	\
 		./src/push_swap.c		./src/sorting/sort_utils.c		 ./src/sorting/algo.c	\
 
-OFILES= ${SRC:.c=.o}
-OFILESB=${SRCB:.c=.o}
-OFILESALL=${OFILES} ${OFILESB}
-
-${NAME}:${OFILES}
-	@${NAME} $?
-	@echo "\n\n ${GRAS}${RED}push_swap EST COMPILÉ${RESET}"
+OFILES= ${SRC:%.c=obj/%.o}
 
 CC= 	cc
 CFLAGS= -Wall -Wextra -Werror -fsanitize=address -g3
@@ -55,16 +49,18 @@ ${NAME}:		${OFILES}
 		@${CC} ${CFLAGS} ${OFILES} -o ${NAME}
 		@echo "\n\n${GREEN}[✓] - ${_GREEN}Push Swap${GREEN} Successfully Compiled!${RESET}"
 
-%.o:%.c
+obj/%.o:%.c
+	@mkdir -p obj/$(dir $<)
 	@${eval FICH_COUNT = ${shell expr ${FICH_COUNT} + 1}}
-	@${CC} ${CFLAGS} -c -I . $< -o ${<:.c=.o}
-	@echo " ${GRAS}${RED}-> COMPILATION EN COURS${RESET}${GRAS}${GREEN}${RESET}"
-	@printf " ${RED}${GRAS}[${GREEN}%-.${BAR}s${DARK_RED}%-.${REST}s${RED}] [%d/%d (%d%%)] ${GREEN}$<  ✓                         ${DEF_COLOR}" "-----------------------" "-----------------------" ${FICH_COUNT} ${NBR_TOT_FICHIER} ${NBR_COMPILER}
-	@echo "${UP}${UP}${UP}"
-	@echo ""
+	@${CC} ${CFLAGS} -c -I . $< -o $@
+	@file_name=$(notdir $<) && \
+	echo " ${GRAS}${RED}-> COMPILATION EN COURS${RESET}${GRAS}${GREEN}${RESET}" && \
+	printf " ${RED}${GRAS}[${GREEN}%-.${BAR}s${DARK_RED}%-.${REST}s${RED}] [%d/%d (%d%%)] ${GREEN}%s  ✓                         ${DEF_COLOR}" "-----------------------" "-----------------------" ${FICH_COUNT} ${NBR_TOT_FICHIER} ${NBR_COMPILER} $${file_name} && \
+	echo "${UP}${UP}${UP}" && \
+	echo ""
 
 clean:
-	@rm -f ${OFILESALL}
+	@rm -rf obj
 	@echo "${ORANGE}${GRAS}\tNETTOYAGE${RESET}"
 	@echo "${RED}${ITALIQUE} -les fichiers sont supprimés${RESET}"
 

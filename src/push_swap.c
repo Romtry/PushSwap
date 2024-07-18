@@ -6,7 +6,7 @@
 /*   By: rothiery <rothiery@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/11 09:56:25 by rothiery          #+#    #+#             */
-/*   Updated: 2024/07/17 14:31:16 by rothiery         ###   ########.fr       */
+/*   Updated: 2024/07/18 10:55:28 by rothiery         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,7 +57,7 @@ t_list	*init_list(int argc, char **argv)
 	head = ft_lstnew(ft_atol(argv[i]));
 	i++;
 	current = head;
-	while (argc > i)
+	while (i < argc)
 	{
 		current->next = ft_lstnew(ft_atol(argv[i]));
 		current = current->next;
@@ -68,14 +68,20 @@ t_list	*init_list(int argc, char **argv)
 
 int	main(int argc, char **argv)
 {
+	int	i;
+	char	**split;
 	t_list	*stack_a;
 	t_list	*stack_b;
 
+	i = 0;
 	stack_b = NULL;
 	if (argc == 2)
 	{
-		check(argc , (char **)ft_split(argv[1], ' '));
-		stack_a = init_list(argc , (char **)ft_split(argv[1], ' '));
+		split = ft_split(argv[1], ' ');
+		while (split[i])
+			i++;
+		check(i , split);
+		stack_a = init_list(i , split);
 	}
 	else
 	{

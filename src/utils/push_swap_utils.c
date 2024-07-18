@@ -6,7 +6,7 @@
 /*   By: rothiery <rothiery@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/17 14:44:09 by rothiery          #+#    #+#             */
-/*   Updated: 2024/07/04 11:18:14 by rothiery         ###   ########.fr       */
+/*   Updated: 2024/07/18 10:46:51 by rothiery         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,7 +61,7 @@ int	ft_atol(char *str)
 
 char	**p2p(char **arr, char *wrd, int cnt)
 {
-	if (wrd[0] != 0)
+	if (wrd[0] != '\0')
 	{
 		if (arr == NULL)
 		{
