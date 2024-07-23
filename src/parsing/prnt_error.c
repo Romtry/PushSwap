@@ -6,13 +6,13 @@
 /*   By: rothiery <rothiery@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/13 14:16:56 by rothiery          #+#    #+#             */
-/*   Updated: 2024/07/04 10:39:49 by rothiery         ###   ########.fr       */
+/*   Updated: 2024/07/18 14:19:24 by rothiery         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/push_swap.h"
 
-void    prnt_error(int i)
+void	prnt_error(int i)
 {
 	if (i == 1)
 		write(1, "you can't put twice or more the same number!", 44);

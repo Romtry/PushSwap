@@ -6,7 +6,7 @@
 /*   By: rothiery <rothiery@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/07 11:22:42 by rothiery          #+#    #+#             */
-/*   Updated: 2024/07/11 10:40:05 by rothiery         ###   ########.fr       */
+/*   Updated: 2024/07/18 14:40:18 by rothiery         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,9 +14,9 @@
 
 void	ra(t_list **a)
 {
-	int	i2;
-	int	i;
-	t_list *l1;
+	int		i2;
+	int		i;
+	t_list	*l1;
 
 	l1 = *a;
 	i = (l1)->content;
@@ -32,9 +32,9 @@ void	ra(t_list **a)
 
 void	rb(t_list **b)
 {
-	int	i2;
-	int	i;
-	t_list *l1;
+	int		i2;
+	int		i;
+	t_list	*l1;
 
 	l1 = *b;
 	i = (l1)->content;
@@ -50,9 +50,9 @@ void	rb(t_list **b)
 
 static void	ra_(t_list **a)
 {
-	int	i2;
-	int	i;
-	t_list *l1;
+	int		i2;
+	int		i;
+	t_list	*l1;
 
 	l1 = *a;
 	i = (l1)->content;
@@ -67,9 +67,9 @@ static void	ra_(t_list **a)
 
 static void	rb_(t_list **b)
 {
-	int	i2;
-	int	i;
-	t_list *l1;
+	int		i2;
+	int		i;
+	t_list	*l1;
 
 	l1 = *b;
 	i = (l1)->content;

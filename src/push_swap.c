@@ -6,7 +6,7 @@
 /*   By: rothiery <rothiery@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/11 09:56:25 by rothiery          #+#    #+#             */
-/*   Updated: 2024/07/18 10:55:28 by rothiery         ###   ########.fr       */
+/*   Updated: 2024/07/19 11:25:11 by rothiery         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,6 @@
 void	free_all(t_list *a)
 {
 	t_list	*temp;
-
 
 	while (a->next)
 	{
@@ -28,18 +27,20 @@ void	free_all(t_list *a)
 
 void	printus(t_list *stack_a, t_list *stack_b)
 {
+	int i;
 	t_list	*tmpa;
 	t_list	*tmpb;
 
+	i = 0;
 	tmpa = stack_a;
 	tmpb = stack_b;
-	while (tmpa)
+	while (tmpa && i++ < 5)
 	{
 		printf("Content Stack A: %d\n", tmpa->content);
 		tmpa = tmpa->next;
 	}
 	printf("\n");
-	while (tmpb)
+	while (tmpb && i++ < 5)
 	{
 		printf("Content Stack B: %d\n", tmpb->content);
 		tmpb = tmpb->next;
@@ -68,7 +69,7 @@ t_list	*init_list(int argc, char **argv)
 
 int	main(int argc, char **argv)
 {
-	int	i;
+	int		i;
 	char	**split;
 	t_list	*stack_a;
 	t_list	*stack_b;
@@ -80,8 +81,8 @@ int	main(int argc, char **argv)
 		split = ft_split(argv[1], ' ');
 		while (split[i])
 			i++;
-		check(i , split);
-		stack_a = init_list(i , split);
+		check(i, split);
+		stack_a = init_list(i, split);
 	}
 	else
 	{

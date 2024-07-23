@@ -6,13 +6,13 @@
 /*   By: rothiery <rothiery@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/08 09:42:53 by rothiery          #+#    #+#             */
-/*   Updated: 2024/07/17 14:32:09 by rothiery         ###   ########.fr       */
+/*   Updated: 2024/07/18 14:37:21 by rothiery         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/push_swap.h"
 
-int	is_sorted1(t_list *a)
+int	is_sorted(t_list *a)
 {
 	while (a->next)
 	{
@@ -20,9 +20,10 @@ int	is_sorted1(t_list *a)
 			return (1);
 		a = a->next;
 	}
-	write(1, "OK\n", 3);
 	return (0);
 }
+
+// 	write(1, "OK\n", 3);
 
 int	is_sortedb(t_list *b)
 {
@@ -55,7 +56,7 @@ void	push_short(t_list **a, t_list **b)
 
 void	sort(t_list *a, t_list *b, int len)
 {
-	if(len > 3)
+	if (len > 3)
 	{
 		push_short(&a, &b);
 		len--;
@@ -77,7 +78,6 @@ void	sort(t_list *a, t_list *b, int len)
 		}
 	}
 }
-
 
 void	sorting(t_list *a, t_list *b)
 {

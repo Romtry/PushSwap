@@ -6,7 +6,7 @@
 /*   By: rothiery <rothiery@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/07 11:26:53 by rothiery          #+#    #+#             */
-/*   Updated: 2024/07/11 10:40:26 by rothiery         ###   ########.fr       */
+/*   Updated: 2024/07/18 14:41:10 by rothiery         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,12 +14,12 @@
 
 void	rra(t_list **a)
 {
-	int	i2;
-	int	i;
-	t_list *l1;
+	int		i2;
+	int		i;
+	t_list	*l1;
 
 	l1 = *a;
-	while(l1->next)
+	while (l1->next)
 		l1 = (l1)->next;
 	i = (l1)->content;
 	l1 = *a;
@@ -35,12 +35,12 @@ void	rra(t_list **a)
 
 void	rrb(t_list **b)
 {
-	int	i2;
-	int	i;
-	t_list *l1;
+	int		i2;
+	int		i;
+	t_list	*l1;
 
 	l1 = *b;
-	while(l1->next)
+	while (l1->next)
 		l1 = (l1)->next;
 	i = (l1)->content;
 	l1 = *b;
@@ -56,12 +56,12 @@ void	rrb(t_list **b)
 
 static void	rra_(t_list **a)
 {
-	int	i2;
-	int	i;
-	t_list *l1;
+	int		i2;
+	int		i;
+	t_list	*l1;
 
 	l1 = *a;
-	while(l1->next)
+	while (l1->next)
 		l1 = (l1)->next;
 	i = (l1)->content;
 	l1 = *a;
@@ -76,12 +76,12 @@ static void	rra_(t_list **a)
 
 static void	rrb_(t_list **b)
 {
-	int	i2;
-	int	i;
-	t_list *l1;
+	int		i2;
+	int		i;
+	t_list	*l1;
 
 	l1 = *b;
-	while(l1->next)
+	while (l1->next)
 		l1 = (l1)->next;
 	i = (l1)->content;
 	l1 = *b;

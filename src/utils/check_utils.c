@@ -6,61 +6,69 @@
 /*   By: rothiery <rothiery@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/19 13:58:18 by rothiery          #+#    #+#             */
-/*   Updated: 2024/07/17 14:10:45 by rothiery         ###   ########.fr       */
+/*   Updated: 2024/07/19 10:10:58 by rothiery         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/push_swap.h"
 
-void	isnmbr(char *str)
+int	l_median(t_list *a, int len)
 {
-	int	i;
+	t_list	*cmp;
+	t_list	*cmp2;
+	int		i;
 
+	cmp = a;
 	i = 0;
-	if (str[0] == '0' && str[1] >= '0' && str[1] <= '9')
-		prnt_error(2);
-	if ((str[0] == '-' && str[1] == '0') || (str[0] == '-' && str[1] == '\0'))
-		prnt_error(2);
-	if (str[i] == '-')
-		i++;
-	while (str[i] != '\0')
+	while (i != ((len / 2)))
 	{
-		if (!(str[i] >= '0' && str[i] <= '9'))
-			prnt_error(2);
-		i++;
-	}
-}
-
-void	norep(char **argv)
-{
-	int	i;
-	int	j;
-	int	k;
-
-	k = 0;
-	i = 0;
-	j = 1;
-	while (argv[i])
-	{
-		while (argv[j])
+		cmp2 = a;
+		i = 0;
+		while (i <= ((len / 2)) && cmp2)
 		{
-			if (ft_strcmp(argv[i], argv[j]) == 0)
-				prnt_error(1);
-			j++;
-			k = 0;
+			if (cmp->content > cmp2->content)
+				i++;
+			cmp2 = cmp2->next;
 		}
-		i++;
-		j = i + 1;
+		if (i != len / 2)
+			cmp = cmp->next;
 	}
+	return (cmp->content);
 }
 
-int	is_sorted(t_list *a)
+int	lst_n(t_list *b, int n)
 {
-	while (a->next)
+	t_list	*tmp;
+
+	tmp = b;
+	while (n > 0 && tmp->next)
 	{
-		if (a->content > a->next->content)
-			return (1);
-		a = a->next;
+		tmp = tmp->next;
+		n--;
 	}
-	return (0);
+	return (tmp->content);
+}
+
+int	ft_atol(char *str)
+{
+	unsigned int	i;
+	int				sign;
+	long			ret;
+
+	i = 0;
+	sign = 1;
+	ret = 0;
+	if (str[i] == '-')
+	{
+		sign = -1;
+		i++;
+	}
+	while (str[i])
+	{
+		ret = ret * 10 + (str[i] - '0');
+		i++;
+	}
+	if (ret > INT_MAX || ret < INT_MIN)
+		prnt_error(3);
+	return (ret * sign);
 }

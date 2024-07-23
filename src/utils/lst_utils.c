@@ -6,7 +6,7 @@
 /*   By: rothiery <rothiery@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/26 14:20:02 by rothiery          #+#    #+#             */
-/*   Updated: 2024/07/17 13:58:32 by rothiery         ###   ########.fr       */
+/*   Updated: 2024/07/19 11:51:42 by rothiery         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ t_list	*ft_lstnew(int content)
 	return (tab);
 }
 
-int		lst_len(t_list *lst)
+int	lst_len(t_list *lst)
 {
 	int	i;
 
@@ -101,12 +101,14 @@ int	lst_short(t_list **stack_a)
 	return (0);
 }
 
+// first pos = 1
+
 int	lst_high(t_list *a, int h_f)
 {
 	t_list	*cmp;
 	t_list	*cmp2;
-	int	i;
-	int i2;
+	int		i;
+	int		i2;
 
 	i2 = 0;
 	cmp = a;
@@ -119,7 +121,6 @@ int	lst_high(t_list *a, int h_f)
 		{
 			if (cmp->content > cmp2->content)
 				i++;
-		//	if (cmp2->next)
 			cmp2 = cmp2->next;
 		}
 		i2++;
@@ -127,28 +128,4 @@ int	lst_high(t_list *a, int h_f)
 		cmp2 = a;
 	}
 	return (i2);
-}
-
-int		l_median(t_list *a, int len)
-{
-	t_list	*cmp;
-	t_list	*cmp2;
-	int	i;
-
-	cmp = a;
-	i = 0;
-	while (i != ((len / 2)))
-	{
-		cmp2 = a;
-		i = 0;
-		while (i <= ((len / 2)) && cmp2)
-		{
-			if (cmp->content > cmp2->content)
-				i++;
-			cmp2 = cmp2->next;
-		}
-		if (i != len / 2)
-			cmp = cmp->next;
-	}
-	return(cmp->content);
 }
