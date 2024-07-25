@@ -6,7 +6,7 @@
 /*   By: rothiery <rothiery@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/13 10:26:44 by rothiery          #+#    #+#             */
-/*   Updated: 2024/07/19 11:06:14 by rothiery         ###   ########.fr       */
+/*   Updated: 2024/07/25 08:43:25 by rothiery         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,7 @@ typedef struct s_list
 	struct s_list	*next;
 }	t_list;
 
+void	l_bsort(t_list **a, t_list **b);
 void	a_2sort(t_list **a, t_list **b, int high_f);
 void	high_move(t_list **a, int n);
 int		lst_n(t_list *b, int n);

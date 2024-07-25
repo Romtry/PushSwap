@@ -6,7 +6,7 @@
 /*   By: rothiery <rothiery@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/11 09:56:25 by rothiery          #+#    #+#             */
-/*   Updated: 2024/07/19 11:25:11 by rothiery         ###   ########.fr       */
+/*   Updated: 2024/07/25 15:26:43 by rothiery         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,8 +39,9 @@ void	printus(t_list *stack_a, t_list *stack_b)
 		printf("Content Stack A: %d\n", tmpa->content);
 		tmpa = tmpa->next;
 	}
+	i = 0;
 	printf("\n");
-	while (tmpb && i++ < 5)
+	while (tmpb && i++ < 15)
 	{
 		printf("Content Stack B: %d\n", tmpb->content);
 		tmpb = tmpb->next;
