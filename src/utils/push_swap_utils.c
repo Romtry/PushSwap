@@ -6,7 +6,7 @@
 /*   By: rothiery <rothiery@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/17 14:44:09 by rothiery          #+#    #+#             */
-/*   Updated: 2024/07/18 14:38:44 by rothiery         ###   ########.fr       */
+/*   Updated: 2024/07/29 12:48:48 by rothiery         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,10 @@ int	ft_strcmp(const char *s1, const char *s2)
 
 	i = 0;
 	while (s1[i] == s2[i] && s1[i] != '\0' && s2[i] != '\0')
+	{
+		printf("argv[i] = %d, argv[j] = %d\n", s1[i], s2[i]);
 		i++;
+	}
 	return ((unsigned char)s1[i] - (unsigned char)s2[i]);
 }
 

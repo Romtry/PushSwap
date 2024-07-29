@@ -6,7 +6,7 @@
 /*   By: rothiery <rothiery@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/11 09:56:25 by rothiery          #+#    #+#             */
-/*   Updated: 2024/07/25 15:26:43 by rothiery         ###   ########.fr       */
+/*   Updated: 2024/07/29 14:57:15 by rothiery         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -89,6 +89,7 @@ int	main(int argc, char **argv)
 	{
 		check(argc - 1, argv + 1);
 		stack_a = init_list(argc - 1, argv + 1);
+		norep(&stack_a);
 	}
 	if (is_sorted(stack_a) == 1)
 		sorting(stack_a, stack_b);

@@ -6,7 +6,7 @@
 /*   By: rothiery <rothiery@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/13 10:26:44 by rothiery          #+#    #+#             */
-/*   Updated: 2024/07/25 08:43:25 by rothiery         ###   ########.fr       */
+/*   Updated: 2024/07/29 14:50:59 by rothiery         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,14 +25,6 @@ typedef struct s_list
 	struct s_list	*next;
 }	t_list;
 
-void	l_bsort(t_list **a, t_list **b);
-void	a_2sort(t_list **a, t_list **b, int high_f);
-void	high_move(t_list **a, int n);
-int		lst_n(t_list *b, int n);
-int		is_sorted(t_list *a);
-int		is_sortedb(t_list *b);
-int		l_median(t_list *a, int len);
-int		lst_high(t_list *a, int h_f);
 void	algo(t_list *a, t_list *b, int len);
 void	printus(t_list *stack_a, t_list *stack_b);
 int		lst_len(t_list *lst);
@@ -55,7 +47,7 @@ t_list	*ft_lstnew(int content);
 int		ft_strcmp(const char *s1, const char *s2);
 int		ft_atol(char *str);
 int		ft_strlen(char *str);
-void	norep(char **argv);
+void	norep(t_list **a);
 void	isnmbr(char *str);
 char	**ft_split(char *str, char target);
 void	prnt_error(int i);

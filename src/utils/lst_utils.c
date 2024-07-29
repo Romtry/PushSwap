@@ -6,7 +6,7 @@
 /*   By: rothiery <rothiery@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/26 14:20:02 by rothiery          #+#    #+#             */
-/*   Updated: 2024/07/19 11:51:42 by rothiery         ###   ########.fr       */
+/*   Updated: 2024/07/29 08:58:09 by rothiery         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,33 +50,6 @@ int	lst_last(t_list *lst)
 	return (lst->content);
 }
 
-// int	lst_short(t_list *lst)
-// {
-// 	int	cmp;
-// 	int	ret;
-// 	int	i;
-
-// 	cmp = lst->content;
-// 	i = 0;
-// 	ret = 0;
-// 	while (lst->next)
-// 	{
-// 		if (lst->content < cmp)
-// 		{
-// 			cmp = lst->content;
-// 			ret = i;
-// 		}
-// 		i++;
-// 		lst = lst->next;
-// 	}
-// 	if (lst->content < cmp)
-// 	{
-// 		cmp = lst->content;
-// 		ret = i;
-// 	}
-// 	return (ret);
-// }
-
 int	lst_short(t_list **stack_a)
 {
 	t_list	*cmp;
@@ -110,11 +83,11 @@ int	lst_high(t_list *a, int h_f)
 	int		i;
 	int		i2;
 
-	i2 = 0;
+	i2 = 1;
 	cmp = a;
 	cmp2 = a;
 	i = 1;
-	while (i != (lst_len(a) - h_f))
+	while (i != (lst_len(a) - h_f) && cmp->next)
 	{
 		i = 1;
 		while (cmp2)
