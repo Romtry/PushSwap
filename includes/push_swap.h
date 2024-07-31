@@ -6,7 +6,7 @@
 /*   By: rothiery <rothiery@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/13 10:26:44 by rothiery          #+#    #+#             */
-/*   Updated: 2024/07/31 14:09:59 by rothiery         ###   ########.fr       */
+/*   Updated: 2024/07/31 15:25:40 by rothiery         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,6 @@ typedef struct s_list
 // correction
 // void	printind(t_list *stack_a, t_list *stack_b);
 // void	printus(t_list *stack_a, t_list *stack_b);
-
 
 // sort_utils
 int		is_sorted(t_list *a);
