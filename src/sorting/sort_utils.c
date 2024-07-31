@@ -6,7 +6,7 @@
 /*   By: rothiery <rothiery@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/08 09:42:53 by rothiery          #+#    #+#             */
-/*   Updated: 2024/07/29 14:57:21 by rothiery         ###   ########.fr       */
+/*   Updated: 2024/07/31 13:23:07 by rothiery         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,40 +54,43 @@ void	push_short(t_list **a, t_list **b)
 	pb(a, b);
 }
 
-void	sort(t_list *a, t_list *b, int len)
+void	sort(t_list **a, t_list **b, int len)
 {
 	if (len > 3)
 	{
-		push_short(&a, &b);
+		push_short(a, b);
 		len--;
 		sort(a, b, len);
-		pa(&a, &b);
+		pa(a, b);
 	}
 	else
 	{
-		if (a->content > a->next->content)
-			sa(&a);
-		if (lst_short(&a) == 2)
-			rra(&a);
-		else if (lst_short(&a) == 1)
-			ra(&a);
-		else if (is_sorted(a) == 1)
+		if ((*a)->content > (*a)->next->content)
+			sa(a);
+		if (lst_short(a) == 2)
+			rra(a);
+		else if (lst_short(a) == 1)
+			ra(a);
+		else if (is_sorted(*a) == 1)
 		{
-			rra(&a);
-			sa(&a);
+			rra(a);
+			sa(a);
 		}
 	}
 }
 
-void	sorting(t_list *a, t_list *b)
+void	sorting(t_list **a, t_list **b)
 {
 	int	len;
 
-	len = lst_len(a);
+	len = lst_len(*a);
 	if (len == 2)
-		sa(&a);
+		sa(a);
 	else if (len <= 5)
 		sort(a, b, len);
 	else
-		algo(a, b, len);
+	{
+		indexing(a);
+		radix(a, b);
+	}
 }

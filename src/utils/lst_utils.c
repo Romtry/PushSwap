@@ -6,7 +6,7 @@
 /*   By: rothiery <rothiery@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/26 14:20:02 by rothiery          #+#    #+#             */
-/*   Updated: 2024/07/29 08:58:09 by rothiery         ###   ########.fr       */
+/*   Updated: 2024/07/30 13:02:46 by rothiery         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,7 @@ t_list	*ft_lstnew(int content)
 	if (tab)
 	{
 		tab->content = content;
+		tab->index = -1;
 		tab->next = NULL;
 	}
 	return (tab);

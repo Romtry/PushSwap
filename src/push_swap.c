@@ -6,7 +6,7 @@
 /*   By: rothiery <rothiery@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/11 09:56:25 by rothiery          #+#    #+#             */
-/*   Updated: 2024/07/29 14:57:15 by rothiery         ###   ########.fr       */
+/*   Updated: 2024/07/31 13:25:47 by rothiery         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,16 +25,40 @@ void	free_all(t_list *a)
 	free(a);
 }
 
-void	printus(t_list *stack_a, t_list *stack_b)
+void	printind(t_list *stack_a, t_list *stack_b)
 {
-	int i;
+	int		i;
 	t_list	*tmpa;
 	t_list	*tmpb;
 
 	i = 0;
 	tmpa = stack_a;
 	tmpb = stack_b;
-	while (tmpa && i++ < 5)
+	while (tmpa && i++ < 10)
+	{
+		printf("Index Stack A: %d\n", tmpa->index);
+		tmpa = tmpa->next;
+	}
+	i = 0;
+	printf("\n");
+	while (tmpb && i++ < 15)
+	{
+		printf("Index Stack B: %d\n", tmpb->index);
+		tmpb = tmpb->next;
+	}
+	printf("\n");
+}
+
+void	printus(t_list *stack_a, t_list *stack_b)
+{
+	int		i;
+	t_list	*tmpa;
+	t_list	*tmpb;
+
+	i = 0;
+	tmpa = stack_a;
+	tmpb = stack_b;
+	while (tmpa && i++ < 10)
 	{
 		printf("Content Stack A: %d\n", tmpa->content);
 		tmpa = tmpa->next;
@@ -92,7 +116,7 @@ int	main(int argc, char **argv)
 		norep(&stack_a);
 	}
 	if (is_sorted(stack_a) == 1)
-		sorting(stack_a, stack_b);
+		sorting(&stack_a, &stack_b);
 	free_all(stack_a);
 }
 
@@ -106,6 +130,7 @@ int	main(int argc, char **argv)
 // 		check(argc , (char **)ft_split(argv[1], ' '));
 // 	check(argc - 1, argv + 1);
 // 	write(1, "ok", 2);
+// 	free_all(stack_a);
 // 	return (0);
 // }
 
@@ -138,7 +163,7 @@ int	main(int argc, char **argv)
 // 	printus(stack_a, stack_b);
 // 	ss(&stack_a, &stack_b);
 // 	printus(stack_a, stack_b);
-// 	ra(&stack_a);
+// 	rb(&stack_a);
 // 	printus(stack_a, stack_b);
 // 	rb(&stack_b);
 // 	printus(stack_a, stack_b);
@@ -152,5 +177,6 @@ int	main(int argc, char **argv)
 // 	printus(stack_a, stack_b);
 // 	pa(&stack_a, &stack_b);
 // 	printus(stack_a, stack_b);
-// 	exit(0);
+// 	free_all(stack_a);
+// 	free_all(stack_b);
 // }

@@ -6,7 +6,7 @@
 /*   By: rothiery <rothiery@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/13 10:26:44 by rothiery          #+#    #+#             */
-/*   Updated: 2024/07/29 14:50:59 by rothiery         ###   ########.fr       */
+/*   Updated: 2024/07/31 13:24:36 by rothiery         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,15 +22,19 @@
 typedef struct s_list
 {
 	int				content;
+	int				index;
 	struct s_list	*next;
 }	t_list;
 
-void	algo(t_list *a, t_list *b, int len);
+void	indexing(t_list **a);
+void	radix(t_list **a, t_list **b);
+void	printind(t_list *stack_a, t_list *stack_b);
+void	algo(t_list **a, t_list **b, int len);
 void	printus(t_list *stack_a, t_list *stack_b);
 int		lst_len(t_list *lst);
 int		lst_last(t_list *lst);
 int		lst_short(t_list **stack_a);
-void	sorting(t_list *a, t_list *b);
+void	sorting(t_list **a, t_list **b);
 int		is_sorted(t_list *a);
 void	sa(t_list **a);
 void	sb(t_list **b);
