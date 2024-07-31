@@ -1,16 +1,40 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap_utils.c                                  :+:      :+:    :+:   */
+/*   utils.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: rothiery <rothiery@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/17 14:44:09 by rothiery          #+#    #+#             */
-/*   Updated: 2024/07/31 13:58:10 by rothiery         ###   ########.fr       */
+/*   Updated: 2024/07/31 14:27:35 by rothiery         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/push_swap.h"
+
+int	ft_atol(char *str)
+{
+	unsigned int	i;
+	int				sign;
+	long			ret;
+
+	i = 0;
+	sign = 1;
+	ret = 0;
+	if (str[i] == '-')
+	{
+		sign = -1;
+		i++;
+	}
+	while (str[i])
+	{
+		ret = ret * 10 + (str[i] - '0');
+		i++;
+	}
+	if (ret > INT_MAX || ret < INT_MIN)
+		prnt_error(3);
+	return (ret * sign);
+}
 
 static char	**arr_m(char **arr, char *wrd, int cnt)
 {

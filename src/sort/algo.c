@@ -6,26 +6,11 @@
 /*   By: rothiery <rothiery@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/11 12:43:03 by rothiery          #+#    #+#             */
-/*   Updated: 2024/07/31 13:27:20 by rothiery         ###   ########.fr       */
+/*   Updated: 2024/07/31 14:22:36 by rothiery         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/push_swap.h"
-
-int	is_nsorted(t_list *a, int n)
-{
-	int	i;
-
-	i = 1;
-	while (a->next && i <= n)
-	{
-		if (a->content > a->next->content)
-			return (1);
-		a = a->next;
-		i++;
-	}
-	return (0);
-}
 
 void	indexing(t_list **a)
 {

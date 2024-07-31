@@ -6,7 +6,7 @@
 /*   By: rothiery <rothiery@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/11 09:56:25 by rothiery          #+#    #+#             */
-/*   Updated: 2024/07/31 13:47:52 by rothiery         ###   ########.fr       */
+/*   Updated: 2024/07/31 14:25:38 by rothiery         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -120,20 +120,6 @@ int	main(int argc, char **argv)
 		sorting(&stack_a, &stack_b);
 	free_all(stack_a);
 }
-
-//check parser
-
-// int	main(int argc, char **argv)
-// {
-// 	t_list	**a;
-
-// 	if (argc == 2)
-// 		check(argc , (char **)ft_split(argv[1], ' '));
-// 	check(argc - 1, argv + 1);
-// 	write(1, "ok", 2);
-// 	free_all(stack_a);
-// 	return (0);
-// }
 
 //moves test
 
