@@ -6,7 +6,7 @@
 /*   By: rothiery <rothiery@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/07 11:22:42 by rothiery          #+#    #+#             */
-/*   Updated: 2024/07/30 18:01:20 by rothiery         ###   ########.fr       */
+/*   Updated: 2024/07/31 13:40:35 by rothiery         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,36 +25,16 @@ void	ra(t_list **a)
 	write(1, "ra\n", 3);
 }
 
-// void	ra(t_list **a)
-// {
-// 	int		i2;
-// 	int		i;
-// 	t_list	*l1;
-
-// 	l1 = *a;
-// 	i = (l1)->content;
-// 	while (l1->next)
-// 	{
-// 		i2 = l1->next->content;
-// 		l1->content = i2;
-// 		l1 = l1->next;
-// 	}
-// 	l1->content = i;
-// 	write(1, "ra\n", 3);
-// }
-
 void	rb(t_list **b)
 {
-	t_list	*s;
 	t_list	*tmp;
 
-	s = (*b)->next;
 	tmp = (*b)->next;
 	while (tmp->next)
 		tmp = tmp->next;
 	tmp->next = (*b);
-	(*b)->next = NULL;
-	(*b) = s;
+	(*b) = (*b)->next;
+	tmp->next->next = NULL;
 	write(1, "rb\n", 3);
 }
 

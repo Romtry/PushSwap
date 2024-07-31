@@ -6,7 +6,7 @@
 /*   By: rothiery <rothiery@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/26 14:20:02 by rothiery          #+#    #+#             */
-/*   Updated: 2024/07/30 13:02:46 by rothiery         ###   ########.fr       */
+/*   Updated: 2024/07/31 13:43:03 by rothiery         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,31 +75,29 @@ int	lst_short(t_list **stack_a)
 	return (0);
 }
 
-// first pos = 1
+// int	lst_high(t_list *a, int h_f)
+// {
+// 	t_list	*cmp;
+// 	t_list	*cmp2;
+// 	int		i;
+// 	int		i2;
 
-int	lst_high(t_list *a, int h_f)
-{
-	t_list	*cmp;
-	t_list	*cmp2;
-	int		i;
-	int		i2;
-
-	i2 = 1;
-	cmp = a;
-	cmp2 = a;
-	i = 1;
-	while (i != (lst_len(a) - h_f) && cmp->next)
-	{
-		i = 1;
-		while (cmp2)
-		{
-			if (cmp->content > cmp2->content)
-				i++;
-			cmp2 = cmp2->next;
-		}
-		i2++;
-		cmp = cmp->next;
-		cmp2 = a;
-	}
-	return (i2);
-}
+// 	i2 = 1;
+// 	cmp = a;
+// 	cmp2 = a;
+// 	i = 1;
+// 	while (i != (lst_len(a) - h_f) && cmp->next)
+// 	{
+// 		i = 1;
+// 		while (cmp2)
+// 		{
+// 			if (cmp->content > cmp2->content)
+// 				i++;
+// 			cmp2 = cmp2->next;
+// 		}
+// 		i2++;
+// 		cmp = cmp->next;
+// 		cmp2 = a;
+// 	}
+// 	return (i2);
+// }

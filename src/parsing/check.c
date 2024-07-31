@@ -6,13 +6,13 @@
 /*   By: rothiery <rothiery@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/13 14:16:50 by rothiery          #+#    #+#             */
-/*   Updated: 2024/07/29 14:57:05 by rothiery         ###   ########.fr       */
+/*   Updated: 2024/07/31 14:09:47 by rothiery         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/push_swap.h"
 
-void	isnmbr(char *str)
+static void	isnmbr(char *str)
 {
 	int	i;
 
@@ -29,6 +29,17 @@ void	isnmbr(char *str)
 			prnt_error(2);
 		i++;
 	}
+}
+
+void	prnt_error(int i)
+{
+	if (i == 1)
+		write(1, "you can't put twice or more the same number!", 44);
+	else if (i == 2)
+		write(1, "some args aren't integer", 24);
+	else if (i == 3)
+		write(1, "number higher than intmax or lower than intmin", 46);
+	exit(0);
 }
 
 void	norep(t_list **a)
@@ -52,6 +63,30 @@ void	norep(t_list **a)
 		}
 		cmp = cmp->next;
 	}
+}
+
+int	ft_atol(char *str)
+{
+	unsigned int	i;
+	int				sign;
+	long			ret;
+
+	i = 0;
+	sign = 1;
+	ret = 0;
+	if (str[i] == '-')
+	{
+		sign = -1;
+		i++;
+	}
+	while (str[i])
+	{
+		ret = ret * 10 + (str[i] - '0');
+		i++;
+	}
+	if (ret > INT_MAX || ret < INT_MIN)
+		prnt_error(3);
+	return (ret * sign);
 }
 
 void	check(int argc, char **argv)

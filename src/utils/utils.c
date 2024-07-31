@@ -6,39 +6,13 @@
 /*   By: rothiery <rothiery@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/17 14:44:09 by rothiery          #+#    #+#             */
-/*   Updated: 2024/07/29 12:48:48 by rothiery         ###   ########.fr       */
+/*   Updated: 2024/07/31 13:58:10 by rothiery         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/push_swap.h"
 
-int	ft_strcmp(const char *s1, const char *s2)
-{
-	size_t	i;
-
-	i = 0;
-	while (s1[i] == s2[i] && s1[i] != '\0' && s2[i] != '\0')
-	{
-		printf("argv[i] = %d, argv[j] = %d\n", s1[i], s2[i]);
-		i++;
-	}
-	return ((unsigned char)s1[i] - (unsigned char)s2[i]);
-}
-
-int	ft_strlen(char *str)
-{
-	int	i;
-
-	i = 0;
-	if (str != NULL)
-	{
-		while (str[i] != '\0')
-			i++;
-	}
-	return (i);
-}
-
-char	**p2p(char **arr, char *wrd, int cnt)
+static char	**arr_m(char **arr, char *wrd, int cnt)
 {
 	if (wrd[0] != '\0')
 	{
@@ -85,18 +59,6 @@ char	**ft_split(char *str, char c)
 	wrd[j] = '\0';
 	if (str[i])
 		ft_split(str + i, c);
-	arr = p2p(arr, wrd, cnt - 1);
+	arr = arr_m(arr, wrd, cnt - 1);
 	return (cnt--, arr);
-}
-
-int	cnt_wrd(char **str)
-{
-	int		i;
-
-	i = 0;
-	if (str == NULL)
-		return (0);
-	while (str[i] != NULL)
-		i++;
-	return (i);
 }

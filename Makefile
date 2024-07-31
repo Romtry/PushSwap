@@ -6,16 +6,16 @@
 #    By: rothiery <rothiery@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/04/22 09:50:21 by rothiery          #+#    #+#              #
-#    Updated: 2024/07/31 13:25:01 by rothiery         ###   ########.fr        #
+#    Updated: 2024/07/31 14:10:25 by rothiery         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME=	push_swap
 
-SRC= 	src/parsing/check.c		src/parsing/prnt_error.c	src/utils/check_utils.c	\
-		src/utils/lst_utils.c	src/utils/p_moves.c		src/utils/push_swap_utils.c	\
+SRC= 	src/parsing/check.c		src/sort/algo.c \
+		src/sort/sort_utils.c	src/utils/lst_utils.c			src/utils/p_moves.c	\
 		src/utils/r_moves.c		src/utils/rr_moves.c			src/utils/s_moves.c	\
-		src/push_swap.c			src/sorting/sort_utils.c	 	 src/sorting/algo.c	\
+		src/utils/utils.c		src/push_swap.c 	 	\
 
 OFILES= ${SRC:%.c=obj/%.o}
 
@@ -36,7 +36,7 @@ DARK_RED = \033[38;5;88m
 GREEN = \033[38;5;85m
 
 #change value with number of src files !
-NBR_TOT_FICHIER = 12
+NBR_TOT_FICHIER = 10
 
 FICH_COUNT = 0
 NBR_COMPILER = ${shell expr 100 \* ${FICH_COUNT} / ${NBR_TOT_FICHIER}}

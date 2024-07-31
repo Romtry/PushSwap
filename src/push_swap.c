@@ -6,13 +6,62 @@
 /*   By: rothiery <rothiery@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/11 09:56:25 by rothiery          #+#    #+#             */
-/*   Updated: 2024/07/31 13:25:47 by rothiery         ###   ########.fr       */
+/*   Updated: 2024/07/31 13:47:52 by rothiery         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/push_swap.h"
 
-void	free_all(t_list *a)
+// correction
+// void	printind(t_list *stack_a, t_list *stack_b)
+// {
+// 	int		i;
+// 	t_list	*tmpa;
+// 	t_list	*tmpb;
+
+// 	i = 0;
+// 	tmpa = stack_a;
+// 	tmpb = stack_b;
+// 	while (tmpa && i++ < 10)
+// 	{
+// 		printf("Index Stack A: %d\n", tmpa->index);
+// 		tmpa = tmpa->next;
+// 	}
+// 	i = 0;
+// 	printf("\n");
+// 	while (tmpb && i++ < 15)
+// 	{
+// 		printf("Index Stack B: %d\n", tmpb->index);
+// 		tmpb = tmpb->next;
+// 	}
+// 	printf("\n");
+// }
+
+// void	printus(t_list *stack_a, t_list *stack_b)
+// {
+// 	int		i;
+// 	t_list	*tmpa;
+// 	t_list	*tmpb;
+
+// 	i = 0;
+// 	tmpa = stack_a;
+// 	tmpb = stack_b;
+// 	while (tmpa && i++ < 10)
+// 	{
+// 		printf("Content Stack A: %d\n", tmpa->content);
+// 		tmpa = tmpa->next;
+// 	}
+// 	i = 0;
+// 	printf("\n");
+// 	while (tmpb && i++ < 15)
+// 	{
+// 		printf("Content Stack B: %d\n", tmpb->content);
+// 		tmpb = tmpb->next;
+// 	}
+// 	printf("\n");
+// }
+
+static void	free_all(t_list *a)
 {
 	t_list	*temp;
 
@@ -25,55 +74,7 @@ void	free_all(t_list *a)
 	free(a);
 }
 
-void	printind(t_list *stack_a, t_list *stack_b)
-{
-	int		i;
-	t_list	*tmpa;
-	t_list	*tmpb;
-
-	i = 0;
-	tmpa = stack_a;
-	tmpb = stack_b;
-	while (tmpa && i++ < 10)
-	{
-		printf("Index Stack A: %d\n", tmpa->index);
-		tmpa = tmpa->next;
-	}
-	i = 0;
-	printf("\n");
-	while (tmpb && i++ < 15)
-	{
-		printf("Index Stack B: %d\n", tmpb->index);
-		tmpb = tmpb->next;
-	}
-	printf("\n");
-}
-
-void	printus(t_list *stack_a, t_list *stack_b)
-{
-	int		i;
-	t_list	*tmpa;
-	t_list	*tmpb;
-
-	i = 0;
-	tmpa = stack_a;
-	tmpb = stack_b;
-	while (tmpa && i++ < 10)
-	{
-		printf("Content Stack A: %d\n", tmpa->content);
-		tmpa = tmpa->next;
-	}
-	i = 0;
-	printf("\n");
-	while (tmpb && i++ < 15)
-	{
-		printf("Content Stack B: %d\n", tmpb->content);
-		tmpb = tmpb->next;
-	}
-	printf("\n");
-}
-
-t_list	*init_list(int argc, char **argv)
+static t_list	*init_list(int argc, char **argv)
 {
 	t_list	*head;
 	t_list	*current;

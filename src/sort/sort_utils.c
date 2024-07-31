@@ -6,7 +6,7 @@
 /*   By: rothiery <rothiery@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/08 09:42:53 by rothiery          #+#    #+#             */
-/*   Updated: 2024/07/31 13:23:07 by rothiery         ###   ########.fr       */
+/*   Updated: 2024/07/31 13:57:37 by rothiery         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,8 +22,6 @@ int	is_sorted(t_list *a)
 	}
 	return (0);
 }
-
-// 	write(1, "OK\n", 3);
 
 int	is_sortedb(t_list *b)
 {
