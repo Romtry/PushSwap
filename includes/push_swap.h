@@ -28,7 +28,7 @@ typedef struct s_list
 
 // correction
 // void	printind(t_list *stack_a, t_list *stack_b);
-// void	printus(t_list *stack_a, t_list *stack_b);
+void	printus(t_list *stack_a, t_list *stack_b);
 
 // sort_utils
 int		is_sorted(t_list *a);
@@ -44,13 +44,15 @@ void	radix(t_list **a, t_list **b);
 void	indexing(t_list **a);
 
 // check
-void	prnt_error(int i);
-int		ft_atol(char *str);
+void	prnt_error(int i, int s, char **split);
+long	ft_atol(char *str);
 void	norep(t_list **a);
-void	check(int argc, char **argv);
+void	check(char **argv, int s);
 
 // push_swap_utils
-char	**ft_split(char *str, char target);
+void	free_all(t_list *a);
+void	free_split(char **split);
+char	**ft_split(char *str);
 
 // moves
 void	sa(t_list **a);

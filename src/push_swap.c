@@ -37,31 +37,31 @@
 // 	printf("\n");
 // }
 
-// void	printus(t_list *stack_a, t_list *stack_b)
-// {
-// 	int		i;
-// 	t_list	*tmpa;
-// 	t_list	*tmpb;
+void	printus(t_list *stack_a, t_list *stack_b)
+{
+	int		i;
+	t_list	*tmpa;
+	t_list	*tmpb;
 
-// 	i = 0;
-// 	tmpa = stack_a;
-// 	tmpb = stack_b;
-// 	while (tmpa && i++ < 10)
-// 	{
-// 		printf("Content Stack A: %d\n", tmpa->content);
-// 		tmpa = tmpa->next;
-// 	}
-// 	i = 0;
-// 	printf("\n");
-// 	while (tmpb && i++ < 15)
-// 	{
-// 		printf("Content Stack B: %d\n", tmpb->content);
-// 		tmpb = tmpb->next;
-// 	}
-// 	printf("\n");
-// }
+	i = 0;
+	tmpa = stack_a;
+	tmpb = stack_b;
+	while (tmpa && i++ < 10)
+	{
+		printf("Content Stack A: %d\n", tmpa->content);
+		tmpa = tmpa->next;
+	}
+	i = 0;
+	printf("\n");
+	while (tmpb && i++ < 15)
+	{
+		printf("Content Stack B: %d\n", tmpb->content);
+		tmpb = tmpb->next;
+	}
+	printf("\n");
+}
 
-static void	free_all(t_list *a)
+void	free_all(t_list *a)
 {
 	t_list	*temp;
 
@@ -93,29 +93,42 @@ static t_list	*init_list(int argc, char **argv)
 	return (head);
 }
 
-int	main(int argc, char **argv)
+t_list	*argv_sep(char **argv)
 {
 	int		i;
+	t_list	*ret;
 	char	**split;
+
+	i = 0;
+	split = ft_split(argv[1]);
+	if (!split[0])
+		prnt_error(2, 1, split);
+	while (split[i])
+		i++;
+	check(split, 1);
+	ret = init_list(i, split);
+	free_split(split);
+	return (ret);
+}
+
+int	main(int argc, char **argv)
+{
 	t_list	*stack_a;
 	t_list	*stack_b;
 
-	i = 0;
 	stack_b = NULL;
+	if (argc == 1)
+		exit(0);
+	if (argv[1][0] == '\0')
+		prnt_error(2, 0, NULL);
 	if (argc == 2)
-	{
-		split = ft_split(argv[1], ' ');
-		while (split[i])
-			i++;
-		check(i, split);
-		stack_a = init_list(i, split);
-	}
+		stack_a = argv_sep(argv);
 	else
 	{
-		check(argc - 1, argv + 1);
+		check(argv + 1, 0);
 		stack_a = init_list(argc - 1, argv + 1);
-		norep(&stack_a);
 	}
+	norep(&stack_a);
 	if (is_sorted(stack_a) == 1)
 		sorting(&stack_a, &stack_b);
 	free_all(stack_a);

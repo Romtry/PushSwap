@@ -12,7 +12,20 @@
 
 #include "../../includes/push_swap.h"
 
-int	ft_atol(char *str)
+void	free_split(char **split)
+{
+	int	i;
+
+	i = 0;
+	while (split[i])
+	{
+		free(split[i]);
+		i++;
+	}
+	free(split);
+}
+
+long	ft_atol(char *str)
 {
 	unsigned int	i;
 	int				sign;
@@ -31,9 +44,10 @@ int	ft_atol(char *str)
 		ret = ret * 10 + (str[i] - '0');
 		i++;
 	}
-	if (ret > INT_MAX || ret < INT_MIN)
-		prnt_error(3);
-	return (ret * sign);
+	ret *= sign;
+	if (ret < -2147483648 || ret > 2147483647)
+		return (999999999999);
+	return (ret);
 }
 
 static char	**arr_m(char **arr, char *wrd, int cnt)
@@ -59,7 +73,7 @@ static char	**arr_m(char **arr, char *wrd, int cnt)
 	return (arr);
 }
 
-char	**ft_split(char *str, char c)
+char	**ft_split(char *str)
 {
 	static char	**arr = NULL;
 	char		*wrd;
@@ -71,18 +85,18 @@ char	**ft_split(char *str, char c)
 	j = -1;
 	i = 0;
 	cnt++;
-	while (str[i] == c)
+	while (str[i] == ' ' || str[i] == '\t')
 		i++;
 	str = str + i;
 	i = 0;
-	while (str[i] != '\0' && str[i] != c)
+	while (str[i] != '\0' && str[i] != ' ' && str[i] != '\t')
 		i++;
 	wrd = malloc(sizeof(char) * (i + 1));
 	while (++j < i)
 		wrd[j] = str[j];
 	wrd[j] = '\0';
 	if (str[i])
-		ft_split(str + i, c);
+		ft_split(str + i);
 	arr = arr_m(arr, wrd, cnt - 1);
 	return (cnt--, arr);
 }

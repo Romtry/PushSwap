@@ -12,33 +12,36 @@
 
 #include "../../includes/push_swap.h"
 
-static void	isnmbr(char *str)
+static int	isnmbr(char *str)
 {
 	int	i;
 
 	i = 0;
 	if (str[0] == '0' && str[1] >= '0' && str[1] <= '9')
-		prnt_error(2);
+		return (1);
 	if ((str[0] == '-' && str[1] == '0') || (str[0] == '-' && str[1] == '\0'))
-		prnt_error(2);
+		return (1);
 	if (str[i] == '-')
 		i++;
 	while (str[i] != '\0')
 	{
 		if (!(str[i] >= '0' && str[i] <= '9'))
-			prnt_error(2);
+			return (1);
 		i++;
 	}
+	return (0);
 }
 
-void	prnt_error(int i)
+void	prnt_error(int i, int s, char **split)
 {
 	if (i == 1)
-		write(1, "you can't put twice or more the same number!", 44);
+		write(1, "you can't put twice or more the same number!\n", 45);
 	else if (i == 2)
-		write(1, "some args aren't integer", 24);
+		write(1, "some args aren't integer\n", 25);
 	else if (i == 3)
-		write(1, "number higher than intmax or lower than intmin", 46);
+		write(1, "number higher than intmax or lower than intmin\n", 47);
+	if (s == 1)
+		free_split(split);
 	exit(0);
 }
 
@@ -57,25 +60,27 @@ void	norep(t_list **a)
 			cmp2 = cmp2->next;
 			if (cmp->content == cmp2->content)
 			{
-				free(*a);
-				prnt_error(1);
+				free_all(*a);
+				prnt_error(1, 0, NULL);
 			}
 		}
 		cmp = cmp->next;
 	}
 }
 
-void	check(int argc, char **argv)
+void	check(char **argv, int s)
 {
 	int		i;
 
 	i = 0;
-	if (argc == 0)
-		prnt_error(0);
 	while (argv[i])
 	{
-		ft_atol(argv[i]);
-		isnmbr(argv[i]);
+		if (argv[i][0] == '\0')
+			prnt_error(2, s, argv);
+		if (ft_atol(argv[i]) == 999999999999)
+			prnt_error(3, s, argv);
+		if (isnmbr(argv[i]) == 1)
+			prnt_error(2, s, argv);
 		i++;
 	}
 }

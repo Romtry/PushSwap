@@ -33,7 +33,7 @@ static void	push_short(t_list **a, t_list **b)
 		ra(a);
 		i--;
 	}
-	while (i > 2 && i <= 4)
+	while (i > 2 && i < lst_len(*a))
 	{
 		rra(a);
 		i++;
